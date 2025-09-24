@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wypożycz motocykl</title>
+    <style>
+        body {
+            background-image: url("bg.jpg");
+            height: 100vh;
+            margin: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-repeat:space;
+        }
+
+        img {
+            width: 10vw;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Wypożycz motocykl</h1>
+
+<!-- <img src="img1.jpg">
+<img src="img2.jpg"> -->
+
+<form action="back.php" method="POST">
+    <input type="text" name="Imię" placeholder="Imię"><br><br>
+    <input type="text" name="Nazwisko" placeholder="Nazwisko"><br><br>
+    <input type="email" name="Email" placeholder="Email"><br><br>
+    <select id="marka" name="marka">
+        <option value="honda">Honda</option>
+        <option value="yamaha">Yamaha</option>
+        <option value="bmw">BMW</option>
+        <option value="suzuki">Suzuki</option>
+        <option value="kawasaki">Kawasaki</option>
+    </select><br><br>
+    <button type="button" id="markabtn" onclick="zatwierdz_marke()">Zatwierdź markę</button>
+    <button type="button" id="markazmienbtn" onclick="zmien_marke()" disabled>Zmień markę</button><br><br>
+    <button type="submit">Skończ</button>
+</form>
+
+<script>
+
+var marka_select = document.getElementById("marka");
+var marka_btn = document.getElementById("markabtn");
+var marka_zmien_btn = document.getElementById("markazmienbtn");
+
+function zatwierdz_marke() {
+    marka_btn.setAttribute("disabled", "");
+    marka_select.setAttribute("disabled", "");
+    marka_zmien_btn.removeAttribute("disabled");
+}
+function zmien_marke() {
+    marka_btn.removeAttribute("disabled");
+    marka_select.removeAttribute("disabled");
+    marka_zmien_btn.setAttribute("disabled", "");
+}
+
+</script>
+</body>
+</html>
